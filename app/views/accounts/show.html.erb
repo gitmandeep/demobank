@@ -1,0 +1,71 @@
+<div class="tab-view">
+  <h4>Account Details</h4><hr>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card-body">
+        <h4 class="card-title"><%= current_account.number %></h4><br>
+        <div class="account">
+          <div>
+            <p>
+              <strong>Number:</strong>
+              <%= current_account.number %>
+            </p>
+          </div>
+          <div class="ml-35">
+            <p>
+              <strong>Email:</strong>
+              <%= current_account.email %>
+            </p>
+          </div>
+          <div class="ml-35">
+            <p>
+              <strong>Name:</strong>
+              <%= current_account.name %>
+            </p>
+          </div>
+          <div class="ml-35">
+            <p>
+              <strong>Balance:</strong>
+              <%= current_account.balance %>
+            </p>
+          </div>
+        </div>
+        <div>
+          <%= link_to "Add Nominee", add_nominee_account_path(current_account), class: "btn btn-primary btn-sm button"%>
+        </div>
+      </div>
+    </div> 
+  </div> 
+</div>
+
+
+<div class="tab-view">
+  <h4>Nominee Details</h4><hr>
+    <% nominees = current_account.nominees %>
+    <div class="table-responsive">
+      <table class="table table-hover note-table">
+        <thead>
+          <tr class="table-active">
+            <th valign="middle">Sr. No</th>
+            <th valign="middle">Name</th>
+            <th valign="middle">Nominee weightage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if nominees.present? %>
+            <% i = 1 %>
+            <% nominees.each do |nominee| %>
+              <tr>
+                <td valign="middle"><%= i %></td>
+                <td valign="middle"><%= nominee.name %></td>
+                <td valign="middle"><%= nominee.nominee_weightage %></td>
+              </tr>
+              <% i += 1 %>
+            <% end %>
+          <% else %>
+            <h1>No data</h1>
+          <% end%>
+        </tbody>
+      </table>
+    </div>
+</div>

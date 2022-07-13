@@ -1,0 +1,25 @@
+<div class="form mb">
+  <h4>Add Nominee</h4><hr>
+  <%= bootstrap_form_for(account, url: {action: "update_nominee"}) do |f| %>
+    <% if account.errors.any? %>
+      <div class="error-explanation">
+        <h2>#{pluralize(account.errors.count, 'error')} prohibited this account from being saved:</h2>
+        <ul>
+          <% account.errors.full_messages.each do |msg| %>
+            <li>
+              <%= msg %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.hidden_field :meeting_id, :value => account.id %>
+    <div class="field">
+      <%= f.select :nominee_to_id, nominee_list(account), label: "Choose your nominee" %>
+      <%= f.number_field :nominee_weightage, rows: 10, cols:30, :required => true %>
+    </div>
+    <div>
+      <%= f.submit class: 'btn btn-success btn-sm mt-15'  %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id                 :bigint           not null, primary key
+#  balance            :integer
+#  email              :string           default(""), not null
+#  encrypted_password :string           default(""), not null
+#  name               :string
+#  nominee_weightage  :integer
+#  number             :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  nominee_to_id      :integer
+#
+# Indexes
+#
+#  index_accounts_on_email  (email) UNIQUE
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value
